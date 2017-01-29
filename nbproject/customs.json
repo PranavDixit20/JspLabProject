@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "patterns": {
+            "context": "input"
+        },
+        "height": {
+            "context": "table"
+        }
+    }
+}
