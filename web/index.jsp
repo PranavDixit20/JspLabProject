@@ -8,7 +8,7 @@
         <title>welcome Page</title>
     </head>
     <body background="images/a.jpg">
-        <form method="POST" action="DbConnection">
+        <form method="POST" action="LoginClass">
         <table width="30%" height="200px" border="0" align="center">
             <tr align="center"> <td> <font color="black" size="6">  Login </font> </td> </tr>
             <tr><td height="20"></td></tr>
