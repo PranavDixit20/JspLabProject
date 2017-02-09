@@ -1,7 +1,40 @@
+import java.io.*;
 import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-public class LoginClass {
-    public static boolean validate(String name,String pass){
+
+public class LoginClass extends HttpServlet {
+        @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
+        
+          response.setContentType("text/html;charset=UTF-8");
+          PrintWriter out = response.getWriter();
+          int i;
+        
+          String Username=request.getParameter("uname");
+          String Password=request.getParameter("pswd");
+          
+              if(validate(Username,Password)){
+                  if("admin".equals(Username) && "admin".equals(Password)){
+                      RequestDispatcher r=request.getRequestDispatcher("welcome.jsp");
+            r.forward(request, response);
+                  }
+                  else{
+                      HttpSession hp = request.getSession();
+                      hp.setAttribute("nm", Username);
+                      RequestDispatcher r2=request.getRequestDispatcher("uwelcome.jsp");
+            r2.include(request, response);
+                  }
+           }
+          
+          else{
+            out.print("Fill user and pass");
+        }
+    }
+    public  boolean validate(String name,String pass){
          boolean st=false;
         
         try{
@@ -18,5 +51,5 @@ public class LoginClass {
         }
         return st;
     }
-    
-}
+
+ }
